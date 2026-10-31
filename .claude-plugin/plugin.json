@@ -37,5 +37,7 @@
       "required": true,
       "sensitive": true
     }
-  }
+  },
+  "repository": "https://github.com/nopbooster/-nopbooster-store-assistant",
+  "supportUrl": "https://github.com/nopbooster/-nopbooster-store-assistant/issues"
 }
