@@ -1,0 +1,41 @@
+{
+  "name": "nopbooster-store-assistant",
+  "displayName": "NopBooster Store Assistant",
+  "version": "0.1.0",
+  "description": "Run your nopCommerce store from Claude: sales reports, stuck orders, catalogue and SEO audits, translations and bulk price updates, with every change previewed for your approval. Requires the MCP Server (Booster AI) plugin on your store.",
+  "author": {
+    "name": "NopBooster by Creatrix Technologies",
+    "email": "info@creatrixtechnologies.com",
+    "url": "https://www.nopbooster.com"
+  },
+  "homepage": "https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai",
+  "license": "MIT",
+  "keywords": [
+    "nopcommerce",
+    "ecommerce",
+    "store-management",
+    "mcp",
+    "reports",
+    "seo",
+    "translations"
+  ],
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai",
+  "privacyPolicyUrl": "https://www.nopbooster.com/privacy-notice",
+  "termsOfServiceUrl": "https://www.nopbooster.com/conditions-of-use",
+  "userConfig": {
+    "store_url": {
+      "type": "string",
+      "title": "Store address",
+      "description": "Your nopCommerce store's public address, starting with https:// and without a trailing slash, e.g. https://www.example.com",
+      "required": true
+    },
+    "api_key": {
+      "type": "string",
+      "title": "Booster AI API key",
+      "description": "An admin API key created under MCP Server > API keys in your nopCommerce admin. Start with read-only scopes.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}

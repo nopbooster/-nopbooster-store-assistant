@@ -1,0 +1,33 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install "mcp>=1.20,<2" uvicorn
+      - name: Manifests are valid JSON
+        run: |
+          python -m json.tool .claude-plugin/plugin.json > /dev/null
+          python -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python -m json.tool .mcp.json > /dev/null
+      - name: Every skill has a SKILL.md with name and description
+        run: |
+          for d in skills/*/; do
+            f="$d/SKILL.md"; test -f "$f" || { echo "missing $f"; exit 1; }
+            head -5 "$f" | grep -q '^name:' || { echo "no name in $f"; exit 1; }
+            grep -q '^description:' "$f" || { echo "no description in $f"; exit 1; }
+          done
+      - name: Mock server smoke test
+        run: python tests/smoke_test.py
