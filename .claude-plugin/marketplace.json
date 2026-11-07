@@ -10,7 +10,7 @@
       "name": "nopbooster-store-assistant",
       "source": "./",
       "description": "Reports, stuck orders, catalogue and SEO audits, translations and bulk price updates for nopCommerce, through MCP Server (Booster AI).",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "productivity",
       "homepage": "https://github.com/nopbooster/-nopbooster-store-assistant"
     }

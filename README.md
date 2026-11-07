@@ -2,7 +2,7 @@
 
 Run your nopCommerce store from Claude. Ask for last week's sales, find orders that are stuck, audit your catalogue for missing SEO, fill in missing translations or update prices in bulk, in plain English. Every change is shown to you as a before-and-after preview, and nothing is written until you approve it.
 
-The Store Assistant connects Claude to the **[MCP Server (Booster AI)](https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai)** plugin on your own store, and adds ready-made tasks on top of it.
+The Store Assistant works with the **[MCP Server (Booster AI)](https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai)** plugin on your own store: you connect your store to Claude once, and the Store Assistant adds ready-made tasks on top of that connection.
 
 ## What you need
 
@@ -22,13 +22,21 @@ The Store Assistant connects Claude to the **[MCP Server (Booster AI)](https://w
 
 ## Setup
 
-1. Install this plugin.
-2. When asked, enter:
-   - **Store address**: e.g. `https://www.example.com` (no trailing slash)
-   - **Booster AI API key**: the key from step 3 above. It is stored in your system's secure credential store, not in a settings file.
-3. Ask Claude: *"Show last week's sales and my five lowest-stock products."*
+Every store has its own address, so you connect your store to Claude yourself. You do this once.
 
-Using Claude on the web or the desktop app? You can also connect the store as a custom connector with OAuth sign-in, as described on the [product page](https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai).
+**1. Connect your store**
+
+- **Claude Code:** run this in a terminal, with your store address and the API key from above:
+  ```bash
+  claude mcp add --transport http booster-ai https://www.example.com/mcp/admin --header "Authorization: Bearer YOUR_API_KEY"
+  ```
+- **Claude app (web or desktop):** add `https://www.example.com/mcp/admin` as a custom connector and sign in with OAuth, as described on the [product page](https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai).
+
+**2. Install this plugin** (see Install above).
+
+**3. Try it:** ask Claude *"Show last week's sales and my five lowest-stock products."*
+
+Never paste your API key into a chat. If Claude says the store is not connected, repeat step 1.
 
 ## What's included
 

@@ -1,11 +1,13 @@
 ---
 name: booster-ai-store
-description: This skill should be used whenever the user works with their nopCommerce store through the booster-ai MCP server — questions about sales, orders, products, stock, customers, translations, topics or SEO ("how did we sell last week", "which orders are stuck", "update these prices", "what's missing a translation"). It explains the tools, scopes, previews and limits so changes are made safely.
+description: This skill should be used whenever the user works with their nopCommerce store through their store's MCP Server (Booster AI) connection — questions about sales, orders, products, stock, customers, translations, topics or SEO ("how did we sell last week", "which orders are stuck", "update these prices", "what's missing a translation"). It explains the tools, scopes, previews and limits so changes are made safely.
 ---
 
 # Working with a nopCommerce store through Booster AI
 
-The `booster-ai` MCP server is the store's own MCP Server (Booster AI) plugin, reached at `<store>/mcp/admin` with the user's API key. Everything below comes from how that plugin behaves; when a tool's schema (from the server's tool list) disagrees with this file, follow the schema.
+The store's tools come from its own MCP Server (Booster AI) plugin at `<store>/mcp/admin`, which the user connects to Claude themselves (usually named `booster-ai`, as a Claude Code MCP server or a custom connector in the Claude app). This plugin does not include the connection.
+
+If none of the store tools below are available, the store is not connected yet: say so, and point the user to the Setup section of the plugin's README (Claude Code: `claude mcp add --transport http booster-ai https://<store>/mcp/admin --header "Authorization: Bearer <api key>"`; Claude app: add `https://<store>/mcp/admin` as a custom connector). Never ask the user to paste their API key into the chat. Everything below comes from how that plugin behaves; when a tool's schema (from the server's tool list) disagrees with this file, follow the schema.
 
 ## Tools and scopes
 

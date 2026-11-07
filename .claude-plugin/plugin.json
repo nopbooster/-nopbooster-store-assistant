@@ -1,8 +1,8 @@
 {
   "name": "nopbooster-store-assistant",
   "displayName": "NopBooster Store Assistant",
-  "version": "0.1.0",
-  "description": "Run your nopCommerce store from Claude: sales reports, stuck orders, catalogue and SEO audits, translations and bulk price updates, with every change previewed for your approval. Requires the MCP Server (Booster AI) plugin on your store.",
+  "version": "0.2.0",
+  "description": "Run your nopCommerce store from Claude: sales reports, stuck orders, catalogue and SEO audits, translations and bulk price updates, with every change previewed for your approval. Works with the MCP Server (Booster AI) plugin on your store, connected to Claude.",
   "author": {
     "name": "NopBooster by Creatrix Technologies",
     "email": "info@creatrixtechnologies.com",
@@ -23,21 +23,6 @@
   "documentationUrl": "https://www.nopbooster.com/nopcommerce-mcp-server-booster-ai",
   "privacyPolicyUrl": "https://www.nopbooster.com/privacy-notice",
   "termsOfServiceUrl": "https://www.nopbooster.com/conditions-of-use",
-  "userConfig": {
-    "store_url": {
-      "type": "string",
-      "title": "Store address",
-      "description": "Your nopCommerce store's public address, starting with https:// and without a trailing slash, e.g. https://www.example.com",
-      "required": true
-    },
-    "api_key": {
-      "type": "string",
-      "title": "Booster AI API key",
-      "description": "An admin API key created under MCP Server > API keys in your nopCommerce admin. Start with read-only scopes.",
-      "required": true,
-      "sensitive": true
-    }
-  },
   "repository": "https://github.com/nopbooster/-nopbooster-store-assistant",
   "supportUrl": "https://github.com/nopbooster/-nopbooster-store-assistant/issues"
 }
