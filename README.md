@@ -51,10 +51,9 @@ Using Claude on the web or the desktop app? You can also connect the store as a 
 
 ## Testing
 
-The plugin is tested end to end against a stand-in for the Booster AI server (`tests/mock_booster_ai.py`) that behaves like the real one: API-key check, previews with single-use confirmation tokens, no delete tools.
+The plugin is tested end to end against a stand-in for the Booster AI server that behaves like the real one: API-key check, previews with single-use confirmation tokens, no delete tools. The tests check what actually reached the server: a read-only report, a preview without approval, applying after approval with the price really changed, and a wrong key handled without invented figures.
 
-- `python tests/smoke_test.py` checks the stand-in server itself (runs in CI on every push).
-- `python tests/e2e_test.py` runs Claude Code with this plugin against it and checks what reached the server: read-only report, preview without approval, apply after approval with the price actually changed, and a wrong key handled without invented figures. Needs Claude Code signed in and `pip install "mcp>=1.20,<2" uvicorn`.
+The Claude plugin directory accepts no scripts in a plugin, so the test harness is no longer in this repository's current files; it is in the git history at commit `a871345` (`tests/`).
 
 ## Support
 

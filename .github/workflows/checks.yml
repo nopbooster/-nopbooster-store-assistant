@@ -15,8 +15,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install test dependencies
-        run: pip install "mcp>=1.20,<2" uvicorn
       - name: Manifests are valid JSON
         run: |
           python -m json.tool .claude-plugin/plugin.json > /dev/null
@@ -29,5 +27,8 @@ jobs:
             head -5 "$f" | grep -q '^name:' || { echo "no name in $f"; exit 1; }
             grep -q '^description:' "$f" || { echo "no description in $f"; exit 1; }
           done
-      - name: Mock server smoke test
-        run: python tests/smoke_test.py
+      - name: Only file types the plugin directory accepts
+        run: |
+          bad=$(git ls-files | grep -viE '\.(md|txt|json|ya?ml|png|jpe?g|gif|webp|ico)$' | grep -vxE 'LICENSE|\.gitignore' || true)
+          if [ -n "$bad" ]; then echo "Not allowed in the plugin:"; echo "$bad"; exit 1; fi
+          echo "file types OK"
